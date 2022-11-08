@@ -17,13 +17,13 @@ client.on('message',
                 var nick = message.content.split(' ')[1]
                 var arrr = [0, 0, 0, 0];
                 //&startDate=2022-09-01 00:00&endDate=2022-09-21 23:59
-                axios.get(encodeURI('http://api.neople.co.kr/cy/players?nickname=' + nick + '&apikey=' + api_key))
+                axios.get(encodeURI('https://api.neople.co.kr/cy/players?nickname=' + nick + '&apikey=' + api_key))
                     .then(response => {
                         returnValue = response.data.rows[0].grade + '급'
                         message.channel.send(returnValue)
                         if (response.data.rows[0] != undefined) {
                             playerId = response.data.rows[0].playerId
-                            axios.get(encodeURI('http://api.neople.co.kr/cy/players/' + playerId + '/matches?gameTypeId=normal&limit=100&apikey=' + api_key))
+                            axios.get(encodeURI('https://api.neople.co.kr/cy/players/' + playerId + '/matches?gameTypeId=normal&limit=100&apikey=' + api_key))
                                 .then(response => {
                                     for (var i = 0; i < response.data.matches.rows.length; i++) {
                                         switch (response.data.matches.rows[i].position.name) {
@@ -93,14 +93,14 @@ client.on('message',
                     nick = nick.split(' ')[0]
                 }
 
-                axios.get(encodeURI('http://api.neople.co.kr/cy/players?nickname=' + nick + '&apikey=' + api_key))
+                axios.get(encodeURI('https://api.neople.co.kr/cy/players?nickname=' + nick + '&apikey=' + api_key))
                     .then(response => {
                         if (response.data.rows[0] != undefined) {
                             playerId = response.data.rows[0].playerId
-                            // axios.get(encodeURI('http://api.neople.co.kr/cy/players/' + playerId + '/matches?gameTypeId=normal&apikey=' + api_key))
-                            axios.get(encodeURI('http://api.neople.co.kr/cy/players/' + playerId + '/matches?gameTypeId=normal&limit=100&apikey=' + api_key))
+                            // axios.get(encodeURI('https://api.neople.co.kr/cy/players/' + playerId + '/matches?gameTypeId=normal&apikey=' + api_key))
+                            axios.get(encodeURI('https://api.neople.co.kr/cy/players/' + playerId + '/matches?gameTypeId=normal&limit=100&apikey=' + api_key))
                                 .then(response => {
-                                    //http://api.neople.co.kr/cy/players/887df547365df578619aa7404a52da5c/matches?gameTypeId=normal&apikey=oUaarQits42wH7VJUsyX4FOOcwd9vX6h
+                                    //https://api.neople.co.kr/cy/players/887df547365df578619aa7404a52da5c/matches?gameTypeId=normal&apikey=oUaarQits42wH7VJUsyX4FOOcwd9vX6h
                                     for (var i = 0; i < response.data.matches.rows.length; i++) {
                                         var index = a => a.char == response.data.matches.rows[i].playInfo.characterName
                                         if (arrr.findIndex(index) == -1) {
