@@ -1,0 +1,22 @@
+{
+  "name": "cyphers_bot",
+  "version": "1.0.0",
+  "description": "cyphers discord bot",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1y2y1y7/c_bot.git"
+  },
+  "keywords": [
+    "cyphers"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1y2y1y7/c_bot/issues"
+  },
+  "homepage": "https://github.com/1y2y1y7/c_bot#readme"
+}
