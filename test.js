@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const api_key = 'oUaarQits42wH7VJUsyX4FOOcwd9vX6h'
-//oUaarQits42wH7VJUsyX4FOOcwd9vX6h API
+const api_key = process.env.API
 
 client.once("ready",
     () => {
@@ -207,4 +206,4 @@ client.on('message',
         }
     });
 
-client.login('MTAyMTk2MDkzOTgyMzY5MzkxNQ.GP6i-I.ap8I4aa-aX83ZpmgtEK-fUxI0ucSKn-I8m3vZY');
+client.login(process.env.TOKEN);
