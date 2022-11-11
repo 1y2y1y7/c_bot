@@ -16,7 +16,6 @@ client.on('message',
             if (message.content.startsWith("/ㄴㄱ ") || message.content.startsWith("/sr ")) {
                 var nick = message.content.split(' ')[1]
                 var arrr = [0, 0, 0, 0];
-                //&startDate=2022-09-01 00:00&endDate=2022-09-21 23:59
                 axios.get(encodeURI('https://api.neople.co.kr/cy/players?nickname=' + nick + '&apikey=' + api_key))
                     .then(response => {
                         returnValue = response.data.rows[0].grade + '급'
@@ -41,21 +40,6 @@ client.on('message',
                                                 break;
                                         }
                                     }
-                                    // var max = Math.max(...arrr)
-                                    // switch (arrr.indexOf(max)) {
-                                    //     case 0:
-                                    //         message.channel.send('원딜유저')
-                                    //         break;
-                                    //     case 1:
-                                    //         message.channel.send('근딜유저')
-                                    //         break;
-                                    //     case 2:
-                                    //         message.channel.send('탱유저')
-                                    //         break;
-                                    //     case 3:
-                                    //         message.channel.send('서폿유저')
-                                    //         break;
-                                    // }
                                     var arrPosition = [];
                                     arrPosition[0] = arrr[0] != 0 ? parseInt(arrr[0] / response.data.matches.rows.length * 100) : 0
                                     arrPosition[1] = arrr[1] != 0 ? parseInt(arrr[1] / response.data.matches.rows.length * 100) : 0
@@ -191,18 +175,6 @@ client.on('message',
             } else if ((message.content == "clear" || message.content == "칟ㅁㄱ") && message.author.username == "ㅈㅌㅈㅌ") {
                 message.channel.bulkDelete(100);
             }
-            // else {// if (message.content.startsWith("///"))
-            //     var msg = message.content//
-            //     if (message.author.username != "샆봇") {
-            //         message.delete()
-            //         if (msg.substring(msg.length - 2,
-            //             msg.length) != 'ㅅㄱ') {
-            //             message.channel.send(message.author.username + " : " + msg + ' ㅅㄱ')
-            //         } else {
-            //             message.channel.send(message.author.username + " : " + msg)
-            //         }
-            //     }
-            // }
         }
     });
 
